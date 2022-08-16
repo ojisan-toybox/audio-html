@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <audio src="./sample.mp3" controls id="audio"></audio>
+    <button id="back">戻る</button>
+    <button id="playOrPause">再生</button>
+    <button id="proceed">進む</button>
+  </body>
+  <script>
+    const audioEl = document.getElementById("audio");
+    const backBtnEl = document.getElementById("back");
+    const playOrPauseBtnEl = document.getElementById("playOrPause");
+    const procBtnEl = document.getElementById("proceed");
+
+    playOrPauseBtnEl.addEventListener("click", () => {
+      if (!audioEl.paused) {
+        playOrPauseBtnEl.textContent = "再生";
+        audioEl.pause();
+      } else {
+        playOrPauseBtnEl.textContent = "停止";
+        audioEl.play();
+      }
+    });
+
+    procBtnEl.addEventListener("click", () => {
+      audioEl.currentTime += 30;
+    });
+    backBtnEl.addEventListener("click", () => {
+      audioEl.currentTime -= 15;
+    });
+  </script>
+</html>
